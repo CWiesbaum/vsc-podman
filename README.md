@@ -10,7 +10,17 @@ Due to VSC implementation, all no UI related VSC plugins will be installed on th
 
 ## Setup
 
-In order to setup a new box navigate to the repositories root directory and run
+The following environment variables can be set to amend the resulting VM:
+
+**VAGRANT_NAME** - VirtualBox name; *Default:* podman_provider
+
+**VAGRANT_CPUS** - Number of CPUs; *Default: 1*
+
+**VAGRANT_MEMORY** - VM memory; *Default: 2048*
+
+**VAGRANT_SSH_PUB_KEY** - SSH public key to use for SSH connection to host; *Default:* ~/.ssh/id_rsa.pub
+
+In order to setup a new box navigate to project root directory and run
 
 ```bash
 vagrant up
