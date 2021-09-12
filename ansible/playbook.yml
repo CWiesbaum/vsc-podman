@@ -1,15 +1,5 @@
 ---
 - hosts: all
   become: yes
-  tasks:
-    - name: Upgrade all packages
-      dnf:
-        name: "*"
-        state: latest
-    - name: Autoremove unneeded packages installed as dependencies
-      dnf:
-        autoremove: yes
-    - name: Install podman
-      dnf:
-        name: podman
-        state: latest
+  roles:
+    - common
