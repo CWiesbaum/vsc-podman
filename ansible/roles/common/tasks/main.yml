@@ -9,3 +9,14 @@
   dnf:
     name: podman
     state: latest
+- name: Create vscdev user
+  ansible.builtin.user:
+    name: vscdev
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+- name: Set authorized key taken from file
+  ansible.posix.authorized_key:
+    user: vscdev
+    state: present
+    key: "{{ lookup('file', vagrant_ssh_pub_key) }}"
