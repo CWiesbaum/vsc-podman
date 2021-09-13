@@ -6,7 +6,7 @@ This repository contains some IaC scripts to build a fedora based VirtualBox run
 
 The general idea is to start the VM and use it to develop and run your applications using VSCs [Remote SSH Development](https://code.visualstudio.com/docs/remote/ssh) feature.
 
-Due to VSC implementation, all no UI related VSC plugins will be installed on the VM as well. Only UI related plugins will be installed on the host. Therefore, it is also possible to isolate multiple development environments easily by creating multiple boxes.
+Due to VSC implementation, all non UI related VSC plugins will be installed on the VM as well. Only UI related plugins will be installed on the host. Therefore, it is also possible to isolate multiple development environments easily by creating multiple boxes.
 
 ## Setup
 
@@ -26,7 +26,13 @@ In order to setup a new box navigate to project root directory and run
 vagrant up
 ```
 
-In order to refine the basic box to your needs, you can add your required software an configurations using ansible.
+The resulting VirtualBox contains the following software:
+ - podman
+ - podman-compose
+ - Java (8, 11, 16)
+ - aliases for podman to docker and podman-compose to docker-compose
+
+In order to refine the basic box to your needs, you can add your required software and configurations using ansible.
 
 To configure VSC for development, follow their instructions: [Remote SSH Development](https://code.visualstudio.com/docs/remote/ssh)
 
