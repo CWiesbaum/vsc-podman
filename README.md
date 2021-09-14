@@ -20,10 +20,26 @@ The following environment variables can be set to amend the resulting VM:
 
 **VAGRANT_SSH_PUB_KEY** - SSH public key to use for SSH connection to host; *Default:* ~/.ssh/id_rsa.pub
 
+To simplify the setup the ZSH script *envSetup.sh* can be used:
+
+```bash
+$ ./envSetup.sh
+```
+
+The script prompts for each possible option and generate the correct environment variable export commands:
+
+```bash
+Execute the following commands before running vagrant up
+export VAGRANT_CPUS=1
+export VAGRANT_NAME=podman_provider
+export VAGRANT_MEMORY=2048
+export VAGRANT_SSH_PUB_KEY=~/.ssh/id_rsa.pub
+```
+
 In order to setup a new box navigate to project root directory and run
 
 ```bash
-vagrant up
+$ vagrant up
 ```
 
 The resulting VirtualBox contains the following software:
