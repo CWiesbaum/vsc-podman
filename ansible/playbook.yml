@@ -2,5 +2,9 @@
 - hosts: all
   become: yes
   roles:
-    - common
-    - java
+    - role: common
+      tags: [common]
+    - role: java
+      tags: [java]
+    - role: node
+      tags: [node]
