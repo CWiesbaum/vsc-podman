@@ -4,8 +4,8 @@ vbmemory = ENV["VAGRANT_MEMORY"] || 2048
 vbsshpubkey = ENV["VAGRANT_SSH_PUB_KEY"] || "~/.ssh/id_rsa.pub"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "fedora/34-cloud-base"
-  config.vm.box_version = "34.20210423.0"
+  config.vm.box = "fedora/35-cloud-base"
+  config.vm.box_version = "35.20211026.0"
 
   config.vm.provider "virtualbox" do |vbconfig|
     vbconfig.gui = false

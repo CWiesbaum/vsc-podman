@@ -5,6 +5,14 @@
 - name: Autoremove unneeded packages installed as dependencies
   dnf:
     autoremove: yes
+- name: Install git
+  dnf:
+    name: git
+    state: latest
+- name: Install vim
+  dnf:
+    name: vim
+    state: latest
 - name: Install podman
   dnf:
     name: podman
@@ -12,6 +20,10 @@
 - name: Install podman-compose
   dnf:
     name: podman-compose
+    state: latest
+- name: Install buildah
+  dnf:
+    name: buildah
     state: latest
 - name: Create vscdev user
   ansible.builtin.user:

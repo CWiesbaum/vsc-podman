@@ -10,3 +10,7 @@
   dnf:
     name: java-latest-openjdk.x86_64
     state: latest
+- name: Install Apache Maven
+  dnf:
+    name: maven
+    state: latest
