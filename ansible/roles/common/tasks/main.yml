@@ -54,3 +54,21 @@
     state: present
     insertafter: EOF
     create: yes
+- name: Set hard memlock limit for vscdev
+  ansible.builtin.lineinfile:
+    path: /etc/security/limits.conf
+    line: vscdev hard memlock -1
+    owner: root
+    search_string: vscdev hard memlock -1
+    state: present
+    insertafter: EOF
+    create: yes
+- name: Set soft memlock limit for vscdev
+  ansible.builtin.lineinfile:
+    path: /etc/security/limits.conf
+    line: vscdev soft memlock -1
+    owner: root
+    search_string: vscdev soft memlock -1
+    state: present
+    insertafter: EOF
+    create: yes
