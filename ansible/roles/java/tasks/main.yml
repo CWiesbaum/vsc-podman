@@ -6,9 +6,9 @@
   dnf:
     name: java-11-openjdk.x86_64
     state: latest
-- name: Install OpenJDK Latest
+- name: Install OpenJDK 17
   dnf:
-    name: java-latest-openjdk.x86_64
+    name: java-17-openjdk.x86_64
     state: latest
 - name: Install Apache Maven
   dnf:
