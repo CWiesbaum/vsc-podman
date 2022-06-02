@@ -36,24 +36,27 @@
     user: vscdev
     state: present
     key: "{{ lookup('file', vagrant_ssh_pub_key) }}"
-- name: Add podman to docker alias to bashrc
-  ansible.builtin.lineinfile:
-    path: /home/vscdev/.bashrc
-    line: alias docker=podman
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/vscdev/.local/bin
+    state: directory
     owner: vscdev
-    search_string: alias docker=podman
-    state: present
-    insertafter: EOF
-    create: yes
-- name: Add podman-compose to docker-compose alias to bashrc
-  ansible.builtin.lineinfile:
-    path: /home/vscdev/.bashrc
-    line: alias docker-compose=podman-compose
+    group: vscdev
+    mode: '0700'
+- name: Create a symbolic link named docker for podman
+  ansible.builtin.file:
+    src: /usr/bin/podman
+    dest: /home/vscdev/.local/bin/docker
     owner: vscdev
-    search_string: alias docker-compose=podman-compose
-    state: present
-    insertafter: EOF
-    create: yes
+    group: vscdev
+    state: link
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /usr/bin/podman-compose
+    dest: /home/vscdev/.local/bin/docker-compose
+    owner: vscdev
+    group: vscdev
+    state: link
 - name: Set hard memlock limit for vscdev
   ansible.builtin.lineinfile:
     path: /etc/security/limits.conf
